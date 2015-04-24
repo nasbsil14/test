@@ -1,6 +1,6 @@
-object exScala {
+object extScala {
     def main(args:Array[String]):Unit = {
-        println("START test6")
+        println("START")
 
         val list1 = "ABCDEFG".toList
 
@@ -60,7 +60,7 @@ object exScala {
 
         //qSort()
 
-        println("END test6")
+        println("END")
     }
 
     def qSort():Unit = {
