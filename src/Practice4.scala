@@ -30,8 +30,7 @@ object Practice4 {
         //this.test_io
         //this.test_actor
         println(('a' to 'z').getClass)
-        import akka.util.ByteString
-        println(('a' to 'z').map(ByteString(_)).getClass)
+        //println(('a' to 'z').map(ByteString(_)).getClass)
 
         //this.observ_patten
 
@@ -94,51 +93,50 @@ object Practice4 {
     }
 
     //actorの使用例
-    import scala.actors._, Actor._
     case class Message(msg: String)
-    def test_actor = {
-        val consumer =
-        actor{
-            //無限ループで待ち構えないと単純な逐次処理になってしまう
-            var done = false
-            while (!done){
-                receive{
-                    case msg => println("Received message! -> " + msg)
-                    done = (msg == "DONE")
-                    //同期処理時に必要（メッセージの応答メソッドらしい）
-                    reply("RECEIVED")
-                }
-            }
-        }
-
-        //非同期実行
-        // println("1")
-        // consumer ! "TEST1"
-        // println("2")
-        // consumer ! "TEST2"
-        // println("3")
-        // consumer ! "TEST3"
-        // println("4")
-        // consumer ! "DONE"
-
-        //同期実行
-        println("1")
-        consumer !? "TEST1"
-        println("2")
-        consumer !? "TEST2"
-        println("3")
-        consumer !? "TEST3"
-        println("4")
-        consumer !? "DONE"
-
-        //.concurrent.opsが無い
-        // import scala.concurrent.ops._
-        // spawn {
-        //     val importantInfo : Array[String] = Array(
-        //         "test1", "test2", "test3", "DONE")
-        //     importantInfo.foreach(msg => consumer !? msg)
-        // }
-    }
+//    def test_actor = {
+//        val consumer =
+//        actor{
+//            //無限ループで待ち構えないと単純な逐次処理になってしまう
+//            var done = false
+//            while (!done){
+//                receive{
+//                    case msg => println("Received message! -> " + msg)
+//                    done = (msg == "DONE")
+//                    //同期処理時に必要（メッセージの応答メソッドらしい）
+//                    reply("RECEIVED")
+//                }
+//            }
+//        }
+//
+//        //非同期実行
+//        // println("1")
+//        // consumer ! "TEST1"
+//        // println("2")
+//        // consumer ! "TEST2"
+//        // println("3")
+//        // consumer ! "TEST3"
+//        // println("4")
+//        // consumer ! "DONE"
+//
+//        //同期実行
+//        println("1")
+//        consumer !? "TEST1"
+//        println("2")
+//        consumer !? "TEST2"
+//        println("3")
+//        consumer !? "TEST3"
+//        println("4")
+//        consumer !? "DONE"
+//
+//        //.concurrent.opsが無い
+//        // import scala.concurrent.ops._
+//        // spawn {
+//        //     val importantInfo : Array[String] = Array(
+//        //         "test1", "test2", "test3", "DONE")
+//        //     importantInfo.foreach(msg => consumer !? msg)
+//        // }
+//    }
 
     class Observ {
         var cnt:Int = 0;

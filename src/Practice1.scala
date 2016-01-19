@@ -1,4 +1,4 @@
-object PracticeScala {
+object Practice1 {
     def main(args:Array[String]):Unit = {
         println("START")
 
