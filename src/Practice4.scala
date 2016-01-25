@@ -62,7 +62,7 @@ object Practice4 {
 
         val x9 = new abs
 
-        //関数を引数にとるメソッド
+        //関数を引数にとる関数
         val x10 = (x:Int) => {x < 1}
         funcTest(x10(1))
     }
