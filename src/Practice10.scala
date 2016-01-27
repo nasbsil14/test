@@ -14,7 +14,7 @@ object Practice10 {
     try {
       Source.fromFile(fileName).getLines().toList.map { line =>
         println("debug:" + line)
-        line.split(",")(1)
+        createCommandList(line.split(",")(1))
       }
     } catch {
       case ex: FileNotFoundException => println("ファイル無い")
@@ -25,11 +25,13 @@ object Practice10 {
     println("END")
   }
 
-  def createCommandList(s: String): Command = {
-    s match {
-      case "A" =>  A
-      case "B" =>  B
-      case "C" =>  C
+  def createCommandList(s: String): Option[Command] = {
+    println(s)
+    s.toUpperCase match {
+      case "A" =>  Some(A)
+      case "B" =>  Some(B)
+      case "C" =>  Some(C)
+      case _ => None
     }
   }
 
