@@ -28,17 +28,17 @@ object Practice10 {
   def createCommandList(s: String): Option[Command] = {
     println(s)
     s.toUpperCase match {
-      case "A" =>  Some(A)
-      case "B" =>  Some(B)
-      case "C" =>  Some(C)
+      case "A" =>  Some(Command.A)
+      case "B" =>  Some(Command.B)
+      case "C" =>  Some(Command.C)
       case _ => None
     }
   }
 
-  class Command(name: String) {
+  sealed abstract class Command(name: String) {}
+  object Command {
+    case object A extends Command("A")
+    case object B extends Command("B")
+    case object C extends Command("C")
   }
-  case object A extends Command("A")
-  case object B extends Command("B")
-  case object C extends Command("C")
-
 }
