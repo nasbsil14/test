@@ -1,3 +1,2 @@
-TEST
-
-scala練習色々
+# Summary
+scala練習用コード色々
